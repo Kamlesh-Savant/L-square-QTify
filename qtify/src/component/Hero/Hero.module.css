@@ -1,0 +1,18 @@
+.textContent{
+    color: var(--color-white);
+    text-align: center;
+}
+
+.img{
+    height: 212px;
+    width: 212px;
+}
+
+.wraper{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-black);
+
+}
