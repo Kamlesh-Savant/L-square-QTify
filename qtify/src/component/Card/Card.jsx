@@ -1,7 +1,7 @@
 import React from "react";
 import Chip from "@mui/material/Chip";
 import styles from "./Card.module.css";
-// import { Tooltip } from "@mui/material";
+import { Tooltip } from "@mui/material";
 
 function Card({data,type}) {
 
@@ -9,7 +9,7 @@ function Card({data,type}) {
 
   return (
     <>
-    {/* <Tooltip title={`${songs.length} songs`} placement="top" arrow> */}
+    <Tooltip title={`${songs.length} songs`} placement="top" arrow>
       {/* <a href={`/album/${slug}`}> */}
       <div className={styles.wraper}>
         <div className={styles.card}>
@@ -24,7 +24,7 @@ function Card({data,type}) {
         </div>
       </div>
       {/* </a> */}
-      {/* </Tooltip> */}
+      </Tooltip>
     </>
   );
 }
