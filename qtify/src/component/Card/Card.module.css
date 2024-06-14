@@ -1,0 +1,45 @@
+.wraper{
+    width: 160px;
+}
+
+.card{
+    height: 205px;
+    width: 160px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.banner{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 42px;
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    padding: 6px;
+
+}
+.capsule{
+    background-color: var(--color-black);
+    cursor: pointer;
+    font-size: 12px;
+    width: max-content;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.titleWrapper{
+    margin-top: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+}
+
+.chip{
+    background-color: var(--color-black) !important;
+    color: var(--color-white) !important;
+}

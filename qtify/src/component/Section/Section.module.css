@@ -1,0 +1,31 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: start;
+    padding: 0px 10px;
+    }
+.topSection{
+    padding: 0px 50px 0px 20px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contentSection{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 0px 0px 30px;
+    gap: 50px;
+    justify-content: baseline;
+}
+
+.btnShowAll{
+    border: none;
+    background-color: transparent;
+    color: var(--color-primary);
+    cursor: pointer;
+
+}
