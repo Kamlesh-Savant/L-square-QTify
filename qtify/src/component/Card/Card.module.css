@@ -22,12 +22,12 @@
 
 }
 .capsule{
-    background-color: var(--color-black);
-    cursor: pointer;
     font-size: 12px;
+    background-color: var(--color-black);
     width: max-content;
     padding: 6px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .titleWrapper{

@@ -1,62 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import Card from '../Card/Card';
-import styles from './Section.module.css';
-import axios from 'axios';
+import React, { useState } from "react";
+import Card from "../Card/Card";
+import styles from "./Section.module.css";
 
-function Section() {
-  const [dataTop, setDataTop] = useState([]);
-  const [dataNew, setDataNew] = useState([]);
+import { CircularProgress } from "@mui/material";
+import Carousel from "../Carousel/Carousel";
 
-
-  const getTopAlbums = async () => {
-    try {
-        const res = await axios.get('https://qtify-backend-labs.crio.do/albums/top');
-        setDataTop(res.data);
-    } catch (err) {
-        console.log("Error fetching albums:", err);
-    }
-};
-
-  const getNewAlbums = async () => {
-      try {
-          const res = await axios.get('https://qtify-backend-labs.crio.do/albums/new');
-          setDataNew(res.data);
-      } catch (err) {
-          console.log("Error fetching albums:", err);
-      }
-  };
-
-  useEffect(() => {
-      getTopAlbums();
-      getNewAlbums();
-  }, []);
-
-  return (
-    <>
-    <div className={styles.wrapper}>
-        <div className={styles.topSection}>
-            <h3>Top Albums</h3>
-            <button className={styles.btnShowAll}>Show all</button>
-        </div>
-        <div className={styles.contentSection}>
-            {dataTop.map((album) => (
-                <Card key={album.id} data={album} type='album' />
-            ))}
-        </div>
-    </div>
-    <div className={styles.wrapper}>
-        <div className={styles.topSection}>
-            <h3>New Albums</h3>
-            <button className={styles.btnShowAll}>Show all</button>
-        </div>
-        <div className={styles.contentSection}>
-            {dataNew.map((album) => (
-                <Card key={album.id} data={album} type='album' />
-            ))}
-        </div>
-    </div>
-    </>
-);
+function Section({ title, data, type }) {
   
+
+  const [toggleForCarousel, setToggleForCarousel] = useState(true);
+
+  const handleToggle = () => {
+    setToggleForCarousel((prevState) => !prevState);
+  };
+  
+  return (
+    
+      <div >
+        <div className={styles.header}>
+          <h3>{title}</h3>
+          <h4 className={styles.btnShowAll} onClick={handleToggle}>
+            {!toggleForCarousel ? "Collapse All" : "Show all"}
+          </h4>
+        </div>
+        {data.length === 0 ? (
+          <CircularProgress />
+        ) : (
+          <div className={styles.cardWrapper}>
+            {!toggleForCarousel ? 
+              <div className={styles.wrapper}>
+              {data.map((album) => (
+              <Card key={album.id} data={album} type={type} />
+                ))}
+            </div> 
+            : <Carousel data={data} renderComponent={(data)=><Card data={data} type={type}/>} />}
+          </div>
+        )}
+      </div>
+      );
 }
 export default Section;
